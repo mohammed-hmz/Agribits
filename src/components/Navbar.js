@@ -47,7 +47,7 @@ function Navb({ lang, lan, Mode, mode }) {
           <img
             src={"../../images/logo.png"}
             alt="Agribits"
-            style={{ height: '100px', marginLeft: "20px" }} // Adjust the height as needed
+            style={{ height: '120px', marginLeft: "20px" }} // Adjust the height as needed
           />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />

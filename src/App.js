@@ -39,7 +39,7 @@ function App() {
       </Routes>
 
       {!(pathname === "/owner" || pathname === "/login-owner") && (
-        <Footer lan={lan} />
+        <Footer lan={lan}  mode={mode}/>
       )}
     </>
   );

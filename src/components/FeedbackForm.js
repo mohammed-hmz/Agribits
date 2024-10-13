@@ -85,17 +85,17 @@ const styles = {
     color: mode === 'Light' ? '#333' : '#f9f9f9',
     borderRadius: '10px',
     padding: '20px',
-    maxWidth: '500px',
+    maxWidth: '400px',
     margin: 'auto',
     boxShadow: mode === 'Light' ? '0 4px 8px rgba(0, 0, 0, 0.3)' : '0 4px 8px rgba(255, 255, 255, 0.1)',
     transition: 'all 0.3s ease',
-    width: '90%',
+    width: '80%',
   }),
   title: (mode, lan) => ({
     textAlign: lan === "English" ? 'right' : 'left',
     fontSize: '24px',
     fontWeight: 'bold',
-    color: mode === 'Light' ? '#333' : '#f9f9f9',
+    color: '#75d840',
   }),
   message: (mode) => ({
     textAlign: 'center',
@@ -153,7 +153,7 @@ const styles = {
 
   button: (mode) => ({
     padding: '10px 20px',
-    backgroundColor: mode === 'Light' ? '#007bff' : '#444',
+    backgroundColor: '#75d840',
     color: '#fff',
     border: 'none',
     borderRadius: '8px',
@@ -163,6 +163,26 @@ const styles = {
     width: '50%',
     alignSelf:"center"
   }),
+  "@media (max-width: 768px)": {
+    aboutContent: {
+      flexDirection: "column", // Stack the text on top of the image
+      justifyContent: "center",
+      alignItems: "center",
+    },
+    textContainer: {
+      position: "absolute", // Position the text on top of the image
+      top: "20px", // Adjust as needed
+      left: "50%",
+      transform: "translateX(-50%)", // Center the text horizontally
+      padding: "20px",
+      backgroundColor: "rgba(0, 0, 0, 0.5)", // Optional background for readability
+      borderRadius: "10px",
+    },
+    companyImage: {
+      width: "100%", // Make the image responsive
+      height: "auto",
+    },
+  }
 };
 
 export default FeedbackForm;

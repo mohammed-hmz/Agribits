@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import styles from '../styles/Footer.module.css'; // Import the CSS module
 
-const Footer = ({ lan }) => {
+const Footer = ({ lan, mode }) => {
   const form = useRef();
   const [message, setMessage] = useState('');
   const [email, setEmail] = useState('');
@@ -38,7 +38,7 @@ const Footer = ({ lan }) => {
         () => {
           setIsSending(false);
           setModalMessage(
-            lan === "العربية" ? 'Message sent successfully.' : 'تم إرسال الرسالة بنجاح.'
+            lan === "العربية" ? 'Message sent successfully.' : 'تم إرسال الرسالة بنجاح!'
           );
           setModalType('success');
           setIsModalOpen(true);
@@ -59,6 +59,10 @@ const Footer = ({ lan }) => {
       );
   };
 
+  // Define the background color based on the mode
+  const backgroundColor = mode === 'Dark' ? '#333' : '#fff';
+  const textColor = mode === 'Dark' ? '#fff' : '#000';
+
   return (
     <>
       <footer className={styles.footer}>
@@ -73,19 +77,26 @@ const Footer = ({ lan }) => {
                 placeholder={lan === "العربية" ? "Your Email" : "بريدك الإلكتروني"}
                 className={styles.inputField}
                 value={email}
-                style={{ textAlign: lan === "العربية" ? "left" : "right" }}
+                style={{ 
+                  textAlign: lan === "العربية" ? "left" : "right",
+                  backgroundColor: backgroundColor,
+                  color: textColor
+                }}
                 onChange={(e) => setEmail(e.target.value)}
               />
-              <input
+              <textarea
                 id="message"
                 name="message"
                 rows="3"
-                style={{ textAlign: lan === "العربية" ? "left" : "right" }}
+                style={{ 
+                  textAlign: lan === "العربية" ? "left" : "right",
+                  backgroundColor: backgroundColor,
+                  color: textColor
+                }}
                 placeholder={lan === "العربية" ? "Your Message" : "رسالتك"}
                 className={styles.textarea}
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-           
               />
               <button type="submit" className={styles.submitButton} disabled={isSending}>
                 {isSending
